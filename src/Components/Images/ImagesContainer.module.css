@@ -1,0 +1,43 @@
+.characters {
+  background-color: #fffaf5;
+  padding-bottom: 10px;
+}
+.container {
+  max-width: 1577px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 30px;
+}
+.button_group {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 80px);
+  justify-content: center;
+  padding-top: 30px;
+}
+.button_group button {
+  border: none;
+  background-color: transparent;
+  font-family: cursive;
+  font-weight: bold;
+}
+.btn_load button {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  background-color: white;
+  font-family: cursive;
+  font-weight: bold;
+  padding: 5px 35px;
+  border-radius: 5px;
+}
+
+@media (max-width: 1040px) {
+  .container {
+    padding-top: 10px;
+  }
+  .button_group {
+    padding-top: 10px;
+  }
+}
