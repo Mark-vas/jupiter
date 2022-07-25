@@ -41,7 +41,7 @@ const ImagesContainer = () => {
   const changeBtnColor = (e) => {
     let btn_group = document.getElementsByClassName("btn_category");
     for (let i = 0; i < btn_group.length; i++) {
-      e.target.id == btn_group[i].id
+      e.target.innerHTML == btn_group[i].innerHTML
         ? (btn_group[i].style.color = "green")
         : (btn_group[i].style.color = "");
     }
@@ -112,7 +112,7 @@ const ImagesContainer = () => {
           Dead
         </button>
         <button className="btn_category" id="4" onClick={unkImgs}>
-          Unknown
+          unknown
         </button>
       </div>
       <div className={style.container}>{imgElem}</div>

@@ -28,10 +28,10 @@ const Images = (props) => {
 
   const clickStatus = (e) => {
     e.target.innerText == "Alive"
-      ? props.aliveImgs()
+      ? props.aliveImgs(e)
       : e.target.innerText == "Dead"
-      ? props.deadImgs()
-      : props.unkImgs();
+      ? props.deadImgs(e)
+      : props.unkImgs(e);
   };
 
   const clickDel = (e) => {
