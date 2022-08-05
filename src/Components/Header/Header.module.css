@@ -1,5 +1,5 @@
 .header {
-  background-color: #1d213d;
+  background-color: #262c3a;
 }
 .header p,
 a,
@@ -9,7 +9,8 @@ h1 {
 .header_block {
   display: flex;
   justify-content: space-evenly;
-  padding-top: 25px;
+  padding: 10px 0;
+  border-bottom: 1px solid white;
 }
 .header_navigation_block {
   display: grid;
@@ -37,7 +38,7 @@ p {
   text-align: center;
 }
 .header_description p {
-  max-width: 500px;
+  max-width: 900px;
   margin: 0 auto;
   padding-bottom: 40px;
 }
@@ -46,8 +47,6 @@ p {
     display: none;
   }
   .header p {
-    /* font-size: 15px;
-    padding-bottom: 5px; */
     display: none;
   }
   .header h1 {

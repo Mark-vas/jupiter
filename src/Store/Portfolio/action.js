@@ -18,20 +18,27 @@ export const unkImagesAC = () => ({ type: UNKNOWNIMAGES });
 export const delImagesAC = (id) => ({ type: DELIMAGES, id });
 export const showAllImgsAC = () => ({ type: SHOWALLIMAGES });
 
-export const getImagesTC = () => {
-  return (dispatch) => {
-    api
-      .getImages()
-      .then((res) => dispatch(getImagesAC(res.results)))
-      .catch((err) => dispatch(errorAC(err.message)));
-  };
+export const getImagesTC = () => async (dispatch) => {
+  try {
+    const res = await api.getImages();
+    dispatch(getImagesAC(res.results));
+  } catch (err) {
+    dispatch(errorAC(err.message));
+  }
 };
 
-export const loadImagesTC = (num) => {
-  return (dispatch) => {
-    api
-      .loadImages(num)
-      .then((res) => dispatch(loadImagesAC(res.results)))
-      .catch((err) => dispatch(errorAC(err.message)));
-  };
+export const loadImagesTC = (num) => async (dispatch) => {
+  try {
+    const res = await api.loadImages(num);
+    dispatch(loadImagesAC(res.results));
+  } catch (err) {
+    dispatch(errorAC(err.message));
+  }
+
+  //   return (dispatch) => {
+  //     api
+  //       .loadImages(num)
+  //       .then((res) => dispatch(loadImagesAC(res.results)))
+  //       .catch((err) => dispatch(errorAC(err.message)));
+  //   };
 };

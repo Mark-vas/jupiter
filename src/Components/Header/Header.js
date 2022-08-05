@@ -9,7 +9,7 @@ const Header = () => {
         <div>
           <a>
             <img src={images}></img>
-            <p>Rick and Morty</p>
+            <p>The Rick and Morty</p>
           </a>
         </div>
         <div className={styles.header_navigation_block}>

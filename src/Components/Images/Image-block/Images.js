@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Images.module.css";
 import { useState } from "react";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Images = (props) => {
   const [border, clickImg] = useState(false);
@@ -35,27 +37,33 @@ const Images = (props) => {
   };
 
   const clickDel = (e) => {
-    let id = Number(e.target.id);
+    let id = Number(e.currentTarget.id);
     props.delImgs(id);
   };
 
   return (
-    <div className={styles.images}>
+    <div
+      className={styles.images}
+      onMouseOver={() => clickImg((border) => !border)}
+      onMouseOut={() => clickImg((border) => !border)}
+    >
       <div className={styles.images_block}>
-        <button onClick={clickStatus}>{props.status}</button>
-        <p>{props.name}</p>
+        <button onClick={clickStatus}>{props.img.status}</button>
+        <p>{props.img.name}</p>
       </div>
       <div style={border ? delON : delOFF}>
-        <button id={props.id} onClick={clickDel}>
-          X
-        </button>
+        <IconButton
+          className={styles.images_delBtn}
+          id={props.img.id}
+          onClick={clickDel}
+        >
+          <DeleteIcon />
+        </IconButton>
       </div>
       <img
         style={border ? borderON : borderOFF}
-        onClick={() => {
-          clickImg((border) => !border);
-        }}
-        src={props.img}
+        id={props.img.id}
+        src={props.img.image}
       ></img>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
@@ -16,12 +16,12 @@ import {
 } from "../../Store/Portfolio/action";
 import Images from "./Image-block/Images";
 import style from "./ImagesContainer.module.css";
+import errorImg from "../../Images/err.png";
 
 const ImagesContainer = () => {
   const images = useSelector(selectImages);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
-  let num = 1;
   const requestImages = async () => {
     dispatch(getImagesTC());
   };
@@ -52,10 +52,13 @@ const ImagesContainer = () => {
     changeBtnColor(e);
   };
 
-  const loadImgs = () => {
-    if (num < 42) {
-      num++;
+  const [count, setCount] = useState(1);
+  const loadImgs = (e) => {
+    let num = count + 1;
+    if (num <= 42) {
       dispatch(loadImagesTC(num));
+    } else {
+      e.target.parentElement.style.display = "none";
     }
   };
 
@@ -80,7 +83,9 @@ const ImagesContainer = () => {
       ? dispatch(aliveImagesAC())
       : images.type == "Dead"
       ? dispatch(deadImagesAC())
-      : dispatch(unkImagesAC());
+      : images.type == "unknown"
+      ? dispatch(unkImagesAC())
+      : dispatch(showAllImgsAC);
   };
 
   const imgElem = arr.map((img) => {
@@ -90,36 +95,58 @@ const ImagesContainer = () => {
         aliveImgs={aliveImgs}
         deadImgs={deadImgs}
         unkImgs={unkImgs}
-        key={img.id}
-        img={img.image}
-        status={img.status}
-        name={img.name}
-        id={img.id}
+        key={Number(img.id)}
+        img={img}
       />
     );
   });
 
+  const styleError = {
+    color: "red",
+  };
+
   return (
-    <main className={style.characters}>
-      <div className={style.button_group}>
-        <button className="btn_category" id="1" onClick={showAllImgs}>
-          Show All
-        </button>
-        <button className="btn_category" id="2" onClick={aliveImgs}>
-          Alive
-        </button>
-        <button className="btn_category" id="3" onClick={deadImgs}>
-          Dead
-        </button>
-        <button className="btn_category" id="4" onClick={unkImgs}>
-          unknown
-        </button>
-      </div>
-      <div className={style.container}>{imgElem}</div>
-      <div className={style.btn_load}>
-        <button onClick={loadImgs}>LOAD MORE</button>
-      </div>
-    </main>
+    <>
+      {error ? (
+        // <p>OOPS...</p>
+        <div className={style.error_block}>
+          <img src={errorImg}></img>
+          <p>Error...</p>
+        </div>
+      ) : (
+        <main className={style.characters}>
+          <div className={style.button_group}>
+            <button className="btn_category" id="1" onClick={showAllImgs}>
+              Show All
+            </button>
+            <button className="btn_category" id="2" onClick={aliveImgs}>
+              Alive
+            </button>
+            <button className="btn_category" id="3" onClick={deadImgs}>
+              Dead
+            </button>
+            <button className="btn_category" id="4" onClick={unkImgs}>
+              unknown
+            </button>
+          </div>
+          <div className={style.container}>{imgElem}</div>
+          {images.type == "All" ? (
+            <div className={style.btn_load}>
+              <button
+                onClick={(e) => {
+                  setCount(count + 1);
+                  loadImgs(e);
+                }}
+              >
+                LOAD MORE
+              </button>
+            </div>
+          ) : (
+            <></>
+          )}
+        </main>
+      )}
+    </>
   );
 };
 export default ImagesContainer;
