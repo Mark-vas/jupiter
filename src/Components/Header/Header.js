@@ -1,37 +1,29 @@
 import React from "react";
 import styles from "./Header.module.css";
-import images from "../../Logo/icons8-morty-smith.svg";
+import imagesMorty from "../../Logo/icons8-morty-smith.svg";
+import imagesRick from "../../Logo/icons8-rick-sanchez.svg";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.header_block}>
         <div>
-          <a>
-            <img src={images}></img>
-            <p>The Rick and Morty</p>
-          </a>
+          <NavLink to="/jupiter">
+            <img src={imagesMorty}></img>
+          </NavLink>
         </div>
-        <div className={styles.header_navigation_block}>
-          <a>About</a>
-          <a>Services</a>
-          <a>Pricing</a>
-          <a>Blog</a>
+        <div className={styles.header_description}>
+          <h1>The Rick and Morty characters</h1>
         </div>
         <div className={styles.header_btn_contact}>
-          <button>CONTACT</button>
+          <a
+            target="_blank"
+            href="https://hh.ru/resume/8ac4e48aff08e59a610039ed1f674139614f35"
+          >
+            <img src={imagesRick}></img>
+          </a>
         </div>
-      </div>
-      <div className={styles.header_description}>
-        <h1>Heroes serial</h1>
-        <p>
-          Rick and Morty is an American adult animated science fiction sitcom
-          created by Justin Roiland and Dan Harmon for Cartoon Network's
-          nighttime programming block Adult Swim. The series follows the
-          misadventures of cynical mad scientist Rick Sanchez and his
-          good-hearted but fretful grandson Morty Smith, who split their time
-          between domestic life and interdimensional adventures.
-        </p>
       </div>
     </header>
   );

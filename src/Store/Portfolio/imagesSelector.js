@@ -1,2 +1,4 @@
-export const selectImages = (state) => state;
-export const selectError = (state) => state.errMessage;
+export const selectImages = (state) => {
+  return state.imagesReducer;
+};
+export const selectError = (state) => state.imagesReducer.errMessage;

@@ -8,20 +8,12 @@ h1 {
 }
 .header_block {
   display: flex;
-  justify-content: space-evenly;
-  padding: 10px 0;
+  justify-content: space-between;
   border-bottom: 1px solid white;
+  padding: 10px;
 }
-.header_navigation_block {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(4, 130px);
-  padding-top: 17px;
-}
-.header_btn_contact {
-  padding-top: 17px;
-}
-.header_btn_contact button {
+
+/* .header_btn_contact button {
   background-color: #1d213d;
   border: solid 1px aliceblue;
   border-radius: 3px;
@@ -29,13 +21,13 @@ h1 {
   font-family: cursive;
   padding: 1px 25px;
   font-weight: bold;
-}
-.header a p {
-  float: right;
-}
-.header_description h1,
-p {
+} */
+
+.header_description h1 {
   text-align: center;
+  margin: 0 auto;
+  padding: 100px 0;
+  font-size: 77px;
 }
 .header_description p {
   max-width: 900px;

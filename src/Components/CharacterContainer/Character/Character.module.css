@@ -1,0 +1,15 @@
+.character_block {
+  background-color: #fffaf5;
+  display: flex;
+  justify-content: left;
+  padding: 30px;
+}
+
+.character_inf {
+  padding-left: 25px;
+}
+
+.character_inf h1 {
+  color: black;
+  margin: 0;
+}

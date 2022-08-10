@@ -1,0 +1,17 @@
+.error_block {
+  position: relative;
+  border-top: 1px solid white;
+}
+
+.error_block img {
+  max-width: 1440px;
+}
+
+.error_block p {
+  position: absolute;
+  top: 0px;
+  color: white;
+  font-family: fantasy;
+  font-size: 50px;
+  left: 157px;
+}

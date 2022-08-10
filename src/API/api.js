@@ -8,7 +8,13 @@ export const api = {
     return res.data;
   },
   async getImages() {
-    const res = await axios.get(`https://rickandmortyapi.com/api/character`);
+    const res = await axios.get("https://rickandmortyapi.com/api/character");
+    return res.data;
+  },
+  async getCharacter(id) {
+    const res = await axios.get(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
     return res.data;
   },
 };

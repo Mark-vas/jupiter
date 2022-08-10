@@ -20,7 +20,11 @@ const initialState = {
 const imagesReducer = (state = initialState, action) => {
   switch (action.type) {
     case IMAGES:
-      return { ...state, images: action.images, type: "All" };
+      if (state.images.length == 0) {
+        return { ...state, images: action.images, type: "All" };
+      } else {
+        return { ...state };
+      }
     case LOADIMAGES:
       let loadImages = [...state.images, ...action.loadImages];
       return { ...state, images: loadImages, type: "All" };

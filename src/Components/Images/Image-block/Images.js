@@ -3,9 +3,10 @@ import styles from "./Images.module.css";
 import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { NavLink } from "react-router-dom";
 
 const Images = (props) => {
-  const [border, clickImg] = useState(false);
+  const [border, mouseOnOff] = useState(false);
 
   const borderON = {
     border: "solid",
@@ -28,6 +29,16 @@ const Images = (props) => {
     display: "none",
   };
 
+  const statusAlive = {
+    backgroundColor: "#90ee90",
+  };
+  const statusDead = {
+    backgroundColor: "#ff4c5b",
+  };
+  const statusUnknown = {
+    backgroundColor: "#bbbbbb",
+  };
+
   const clickStatus = (e) => {
     e.target.innerText == "Alive"
       ? props.aliveImgs(e)
@@ -44,11 +55,22 @@ const Images = (props) => {
   return (
     <div
       className={styles.images}
-      onMouseOver={() => clickImg((border) => !border)}
-      onMouseOut={() => clickImg((border) => !border)}
+      onMouseOver={() => mouseOnOff((border) => !border)}
+      onMouseOut={() => mouseOnOff((border) => !border)}
     >
       <div className={styles.images_block}>
-        <button onClick={clickStatus}>{props.img.status}</button>
+        <button
+          style={
+            props.img.status == "Alive"
+              ? statusAlive
+              : props.img.status == "Dead"
+              ? statusDead
+              : statusUnknown
+          }
+          onClick={clickStatus}
+        >
+          {props.img.status}
+        </button>
         <p>{props.img.name}</p>
       </div>
       <div style={border ? delON : delOFF}>
@@ -60,11 +82,13 @@ const Images = (props) => {
           <DeleteIcon />
         </IconButton>
       </div>
-      <img
-        style={border ? borderON : borderOFF}
-        id={props.img.id}
-        src={props.img.image}
-      ></img>
+      <NavLink to={`/jupiter/${props.img.id}`}>
+        <img
+          style={border ? borderON : borderOFF}
+          id={props.img.id}
+          src={props.img.image}
+        ></img>
+      </NavLink>
     </div>
   );
 };

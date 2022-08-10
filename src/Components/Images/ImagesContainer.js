@@ -16,7 +16,7 @@ import {
 } from "../../Store/Portfolio/action";
 import Images from "./Image-block/Images";
 import style from "./ImagesContainer.module.css";
-import errorImg from "../../Images/err.png";
+import ErrorBlock from "../ErrorBlock/ErrorBlock";
 
 const ImagesContainer = () => {
   const images = useSelector(selectImages);
@@ -38,20 +38,6 @@ const ImagesContainer = () => {
     ? (arr = images.unkImages)
     : (arr = images.images);
 
-  const changeBtnColor = (e) => {
-    let btn_group = document.getElementsByClassName("btn_category");
-    for (let i = 0; i < btn_group.length; i++) {
-      e.target.innerHTML == btn_group[i].innerHTML
-        ? (btn_group[i].style.color = "green")
-        : (btn_group[i].style.color = "");
-    }
-  };
-
-  const showAllImgs = (e) => {
-    dispatch(showAllImgsAC());
-    changeBtnColor(e);
-  };
-
   const [count, setCount] = useState(1);
   const loadImgs = (e) => {
     let num = count + 1;
@@ -62,19 +48,26 @@ const ImagesContainer = () => {
     }
   };
 
-  const aliveImgs = (e) => {
+  const aliveImgs = () => {
     dispatch(aliveImagesAC());
-    changeBtnColor(e);
   };
 
-  const deadImgs = (e) => {
+  const deadImgs = () => {
     dispatch(deadImagesAC());
-    changeBtnColor(e);
   };
 
-  const unkImgs = (e) => {
+  const unkImgs = () => {
     dispatch(unkImagesAC());
-    changeBtnColor(e);
+  };
+
+  const showImgs = (e) => {
+    e.target.innerHTML == "Alive"
+      ? dispatch(aliveImagesAC())
+      : e.target.innerHTML == "Dead"
+      ? dispatch(deadImagesAC())
+      : e.target.innerHTML == "unknown"
+      ? dispatch(unkImagesAC())
+      : dispatch(showAllImgsAC());
   };
 
   const delImgs = (id) => {
@@ -101,34 +94,26 @@ const ImagesContainer = () => {
     );
   });
 
-  const styleError = {
-    color: "red",
-  };
+  let buttonGroup = ["All", "Alive", "Dead", "unknown"];
+  const buttonElem = buttonGroup.map((btn) => {
+    return (
+      <button
+        key={btn}
+        onClick={showImgs}
+        style={btn == images.type ? { color: "green" } : {}}
+      >
+        {btn}
+      </button>
+    );
+  });
 
   return (
     <>
       {error ? (
-        // <p>OOPS...</p>
-        <div className={style.error_block}>
-          <img src={errorImg}></img>
-          <p>Error...</p>
-        </div>
+        <ErrorBlock />
       ) : (
         <main className={style.characters}>
-          <div className={style.button_group}>
-            <button className="btn_category" id="1" onClick={showAllImgs}>
-              Show All
-            </button>
-            <button className="btn_category" id="2" onClick={aliveImgs}>
-              Alive
-            </button>
-            <button className="btn_category" id="3" onClick={deadImgs}>
-              Dead
-            </button>
-            <button className="btn_category" id="4" onClick={unkImgs}>
-              unknown
-            </button>
-          </div>
+          <div className={style.button_group}>{buttonElem}</div>
           <div className={style.container}>{imgElem}</div>
           {images.type == "All" ? (
             <div className={style.btn_load}>

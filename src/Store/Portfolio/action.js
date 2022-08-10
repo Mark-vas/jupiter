@@ -34,11 +34,4 @@ export const loadImagesTC = (num) => async (dispatch) => {
   } catch (err) {
     dispatch(errorAC(err.message));
   }
-
-  //   return (dispatch) => {
-  //     api
-  //       .loadImages(num)
-  //       .then((res) => dispatch(loadImagesAC(res.results)))
-  //       .catch((err) => dispatch(errorAC(err.message)));
-  //   };
 };
