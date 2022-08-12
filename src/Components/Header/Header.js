@@ -13,8 +13,11 @@ const Header = () => {
             <img src={imagesMorty}></img>
           </NavLink>
         </div>
-        <div className={styles.header_description}>
-          <h1>The Rick and Morty characters</h1>
+        <div className={styles.header_block_episodes}>
+          <NavLink to="/jupiter/episodes">Episodes</NavLink>
+        </div>
+        <div className={styles.header_block_episodes}>
+          <NavLink to="/jupiter/locations">Locations</NavLink>
         </div>
         <div className={styles.header_btn_contact}>
           <a
@@ -24,6 +27,9 @@ const Header = () => {
             <img src={imagesRick}></img>
           </a>
         </div>
+      </div>
+      <div className={styles.header_description}>
+        <h1>The Rick and Morty characters</h1>
       </div>
     </header>
   );

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import {
   selectImages,
   selectError,
-} from "../../Store/Portfolio/imagesSelector";
+} from "../../Store/Characters/CharactersSelector";
 import {
   getImagesTC,
   loadImagesTC,
@@ -13,12 +13,12 @@ import {
   unkImagesAC,
   delImagesAC,
   showAllImgsAC,
-} from "../../Store/Portfolio/action";
-import Images from "./Image-block/Images";
-import style from "./ImagesContainer.module.css";
+} from "../../Store/Characters/action";
+import CharacterCard from "./CharacterCard/CharacterCard";
+import style from "./CharactersContainer.module.css";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
 
-const ImagesContainer = () => {
+const CharactersContainer = () => {
   const images = useSelector(selectImages);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
@@ -83,7 +83,7 @@ const ImagesContainer = () => {
 
   const imgElem = arr.map((img) => {
     return (
-      <Images
+      <CharacterCard
         delImgs={delImgs}
         aliveImgs={aliveImgs}
         deadImgs={deadImgs}
@@ -134,4 +134,4 @@ const ImagesContainer = () => {
     </>
   );
 };
-export default ImagesContainer;
+export default CharactersContainer;

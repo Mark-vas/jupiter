@@ -1,5 +1,6 @@
 .header {
   background-color: #262c3a;
+  /* border-bottom: 1px solid white; */
 }
 .header p,
 a,
@@ -9,25 +10,29 @@ h1 {
 .header_block {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid white;
   padding: 10px;
+  border-bottom: 1px solid white;
 }
 
-/* .header_btn_contact button {
-  background-color: #1d213d;
-  border: solid 1px aliceblue;
-  border-radius: 3px;
+.header_block_episodes {
+  position: relative;
+}
+
+.header_block_episodes a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-decoration: none;
   color: aliceblue;
-  font-family: cursive;
-  padding: 1px 25px;
-  font-weight: bold;
-} */
+}
 
 .header_description h1 {
   text-align: center;
   margin: 0 auto;
-  padding: 100px 0;
-  font-size: 77px;
+  padding: 50px 0;
+  font-size: 65px;
 }
 .header_description p {
   max-width: 900px;

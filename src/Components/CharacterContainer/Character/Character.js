@@ -1,8 +1,9 @@
 import React from "react";
 import style from "./Character.module.css";
+import { NavLink } from "react-router-dom";
 
-const CharacterContainer = ({ character }) => {
-  // Реализовать запрос названия первого упоминания {character.episode[0]}
+const Character = ({ character, episodeName }) => {
+  // Реализовать запрос названия последней известной локации character.location.name
 
   return (
     <div className={style.character_block}>
@@ -17,10 +18,13 @@ const CharacterContainer = ({ character }) => {
           {character.location ? character.location.name : "No data"}
         </p>
         <p>
-          First seen in: {character.episode ? character.episode[0] : "No data"}
+          First seen in:{" "}
+          <NavLink to={`/jupiter/episodes/${character.id}`}>
+            {episodeName.name}
+          </NavLink>
         </p>
       </div>
     </div>
   );
 };
-export default CharacterContainer;
+export default Character;

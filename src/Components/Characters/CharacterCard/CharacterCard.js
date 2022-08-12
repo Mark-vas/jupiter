@@ -1,11 +1,11 @@
 import React from "react";
-import styles from "./Images.module.css";
+import style from "./CharacterCard.module.css";
 import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { NavLink } from "react-router-dom";
 
-const Images = (props) => {
+const CharacterCard = (props) => {
   const [border, mouseOnOff] = useState(false);
 
   const borderON = {
@@ -54,11 +54,11 @@ const Images = (props) => {
 
   return (
     <div
-      className={styles.images}
+      className={style.images}
       onMouseOver={() => mouseOnOff((border) => !border)}
       onMouseOut={() => mouseOnOff((border) => !border)}
     >
-      <div className={styles.images_block}>
+      <div className={style.images_block}>
         <button
           style={
             props.img.status == "Alive"
@@ -75,7 +75,7 @@ const Images = (props) => {
       </div>
       <div style={border ? delON : delOFF}>
         <IconButton
-          className={styles.images_delBtn}
+          className={style.images_delBtn}
           id={props.img.id}
           onClick={clickDel}
         >
@@ -93,4 +93,4 @@ const Images = (props) => {
   );
 };
 
-export default Images;
+export default CharacterCard;

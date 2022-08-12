@@ -9,6 +9,12 @@
   padding-left: 25px;
 }
 
+.character_inf p,
+a {
+  color: black;
+  text-decoration: none;
+}
+
 .character_inf h1 {
   color: black;
   margin: 0;

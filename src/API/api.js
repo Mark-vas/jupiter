@@ -17,4 +17,40 @@ export const api = {
     );
     return res.data;
   },
+  // Получение всех эпизодов
+  async getEpisodes() {
+    const res = await axios.get("https://rickandmortyapi.com/api/episode");
+    return res.data;
+  },
+  // Получение следующей страницы эпизодов
+  async loadEpisodes(num) {
+    const res = await axios.get(
+      `https://rickandmortyapi.com/api/episode?page=${num}`
+    );
+    return res.data;
+  },
+  // Получение одного эпизода
+  async getEpisode(id) {
+    const res = await axios.get(
+      `https://rickandmortyapi.com/api/episode/${id}`
+    );
+    return res.data;
+  },
+  // Получение всех локаций
+  async getLocations() {
+    const res = await axios.get("https://rickandmortyapi.com/api/location");
+    return res.data;
+  },
+  // Получение следующей страницы локаций
+  async loadLocations(num) {
+    const res = await axios.get(
+      `https://rickandmortyapi.com/api/location?page=${num}`
+    );
+    return res.data;
+  },
+  // Получение одной локации
+  async getLocation(id) {
+    const res = await axios.get(`rickandmortyapi.com/api/location/${id}`);
+    return res.data;
+  },
 };
