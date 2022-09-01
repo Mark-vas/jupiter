@@ -20,8 +20,8 @@ const LocationsContainer = () => {
   useEffect(() => {
     requestLocations();
   }, []);
-  console.log(locations);
-  console.log(info);
+  // console.log(locations);
+  // console.log(info);
   return <>{error ? <ErrorBlock /> : <>LocationsContainer</>}</>;
 };
 export default LocationsContainer;

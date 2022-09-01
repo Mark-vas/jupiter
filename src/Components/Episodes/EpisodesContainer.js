@@ -10,6 +10,7 @@ import {
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
 import EpisodeElem from "./EpisodeElement/EpisodeElem";
 import Pagination from "@mui/material/Pagination";
+import style from "./EpisodesContainer.module.css";
 
 const EpisodesContainer = () => {
   const episodes = useSelector(episodesSelector);
@@ -42,16 +43,19 @@ const EpisodesContainer = () => {
       {error ? (
         <ErrorBlock />
       ) : (
-        <>
-          <div>
-            <Pagination
-              count={info.pages}
-              page={page}
-              onChange={handleChange}
-            />
+        <div className={style.block}>
+          <p>Total episodes: {info.count}</p>
+          <div className={style.episodes}>
+            <div>{episodeElem}</div>
+            <div>
+              <Pagination
+                count={info.pages}
+                page={page}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div>{episodeElem}</div>
-        </>
+        </div>
       )}
     </>
   );

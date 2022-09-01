@@ -1,21 +1,27 @@
-.character_block {
+.character {
   background-color: #fffaf5;
+  padding: 30px;
+}
+
+.character_block {
   display: flex;
   justify-content: left;
-  padding: 30px;
+  max-width: 600px;
+  background-color: #262c3a;
+  border-radius: 1.5rem;
 }
 
 .character_inf {
   padding-left: 25px;
+  padding: 0.75rem;
 }
 
 .character_inf p,
 a {
-  color: black;
+  color: aliceblue;
   text-decoration: none;
 }
 
 .character_inf h1 {
-  color: black;
-  margin: 0;
+  color: aliceblue;
 }

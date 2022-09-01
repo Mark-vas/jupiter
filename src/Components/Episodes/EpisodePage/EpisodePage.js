@@ -10,6 +10,7 @@ import {
 import ErrorBlock from "../../ErrorBlock/ErrorBlock";
 
 const EpisodePage = () => {
+  debugger;
   const episode = useSelector(episodeSelector);
   const error = useSelector(errorSelector);
   const dispatch = useDispatch();

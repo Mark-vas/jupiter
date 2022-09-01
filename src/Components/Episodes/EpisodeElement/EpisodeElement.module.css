@@ -1,0 +1,22 @@
+.episode {
+  display: flex;
+}
+
+.episode_title {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+}
+
+.episode h1,
+p {
+  color: black;
+}
+
+.episode_hr {
+  margin: 0;
+  padding: 0;
+  height: 0;
+  border: none;
+  border-top: 2px dotted #ddd;
+}

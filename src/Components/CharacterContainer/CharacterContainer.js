@@ -9,8 +9,6 @@ import {
 import { getCharacterTC } from "../../Store/Character/action";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
 import Character from "./Character/Character";
-import { episodeSelector } from "../../Store/Episodes/EpisodesSelector";
-import { getEpisodeTC } from "../../Store/Episodes/action";
 
 const CharacterContainer = () => {
   const character = useSelector(selectCharacter);
@@ -18,14 +16,11 @@ const CharacterContainer = () => {
   const dispatch = useDispatch();
   const requestCharacter = async (id) => {
     dispatch(getCharacterTC(id));
-    dispatch(getEpisodeTC(id));
   };
   let { id } = useParams();
   useEffect(() => {
     requestCharacter(id);
   }, []);
-
-  const episode = useSelector(episodeSelector);
 
   return (
     <>
@@ -33,7 +28,7 @@ const CharacterContainer = () => {
         <ErrorBlock />
       ) : (
         <div>
-          <Character character={character} episodeName={episode} />
+          <Character character={character} />
         </div>
       )}
     </>
