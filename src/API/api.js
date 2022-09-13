@@ -17,6 +17,13 @@ export const api = {
     );
     return res.data;
   },
+  // Получение персонажа из эпизода
+  async getEpisodeChatacter(url) {
+    const res = await axios.get(url);
+    // debugger;
+    return res.data;
+  },
+
   // Получение всех эпизодов
   async getEpisodes() {
     const res = await axios.get("https://rickandmortyapi.com/api/episode");

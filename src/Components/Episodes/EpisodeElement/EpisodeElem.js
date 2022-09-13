@@ -15,7 +15,6 @@ const EpisodeElem = ({ elem }) => {
           <NavLink to={`/jupiter/episodes/${elem.id}`}>
             <h1 style={{ color: "black" }}>{elem.name}</h1>
           </NavLink>
-          {/* <h1 style={{ color: "black" }}>{elem.name}</h1> */}
           <p>{elem.air_date}</p>
         </div>
       </div>

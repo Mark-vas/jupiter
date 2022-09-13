@@ -14,3 +14,12 @@ export const getCharacterTC = (id) => async (dispatch) => {
     dispatch(errorAC(err.message));
   }
 };
+
+export const getEpisodeChatacterTC = (url) => async (dispatch) => {
+  try {
+    const res = await api.getEpisodeChatacter(url);
+    dispatch(getCharacterAC(res));
+  } catch (err) {
+    dispatch(errorAC(err.message));
+  }
+};

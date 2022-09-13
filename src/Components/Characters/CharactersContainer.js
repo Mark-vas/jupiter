@@ -81,14 +81,14 @@ const CharactersContainer = () => {
       : dispatch(showAllImgsAC);
   };
 
-  const imgElem = arr.map((img) => {
+  const imgElem = arr.map((img, index) => {
     return (
       <CharacterCard
         delImgs={delImgs}
         aliveImgs={aliveImgs}
         deadImgs={deadImgs}
         unkImgs={unkImgs}
-        key={Number(img.id)}
+        key={index}
         img={img}
       />
     );
