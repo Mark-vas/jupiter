@@ -2,14 +2,12 @@ import React from "react";
 import { getEpisodeChatacterTC } from "../../../../Store/Character/action";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectCharacter } from "../../../../Store/Character/characterSelector";
+import { selectCharactersEpisode } from "../../../../Store/Character/characterSelector";
 
 const EpisodePageCharacter = (props) => {
-  // debugger;
-  const imageCharacter = useSelector(selectCharacter);
+  const imageCharacter = useSelector(selectCharactersEpisode);
   const dispatch = useDispatch();
   const requestImageCharacter = async (image) => {
-    // debugger;
     dispatch(getEpisodeChatacterTC(image));
   };
   useEffect(() => {
@@ -17,7 +15,13 @@ const EpisodePageCharacter = (props) => {
   }, []);
 
   return (
-    <>{imageCharacter ? <div>{imageCharacter.image}</div> : <>loading...</>}</>
+    <>
+      {imageCharacter ? (
+        <div>{imageCharacter[props.index]}</div>
+      ) : (
+        <>loading...</>
+      )}
+    </>
   );
 };
 

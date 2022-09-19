@@ -15,7 +15,7 @@ const Character = ({ character }) => {
 
   useEffect(() => {
     if (character.episode) {
-      requestEpisode(character.episode[0].slice(-1));
+      requestEpisode(character.episode[0].split("/").pop());
     }
   }, [character.episode]);
 
@@ -35,7 +35,9 @@ const Character = ({ character }) => {
           <p>
             {character.episode ? (
               <NavLink
-                to={`/jupiter/episodes/${character.episode[0].slice(-1)}`}
+                to={`/jupiter/episodes/${character.episode[0]
+                  .split("/")
+                  .pop()}`}
               >
                 First seen in: {episode.name}
               </NavLink>

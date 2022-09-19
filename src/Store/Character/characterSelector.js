@@ -3,3 +3,6 @@ export const selectCharacter = (state) => {
 };
 
 export const selectError = (state) => state.characterReducer.errMessage;
+
+export const selectCharactersEpisode = (state) =>
+  state.characterReducer.charactersEpisodeImg;

@@ -35,8 +35,6 @@ const EpisodesContainer = () => {
   };
 
   // episodes - массив всех эпизодов. Необходимо красиво их разместить на странице
-  // console.log(episodes);
-  // console.log(info);
 
   return (
     <>
