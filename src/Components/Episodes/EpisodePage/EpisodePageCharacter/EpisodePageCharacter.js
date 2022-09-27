@@ -14,6 +14,8 @@ const EpisodePageCharacter = (props) => {
     requestImageCharacter(props.image);
   }, []);
 
+  console.log(props.episode);
+
   return (
     <>
       {imageCharacter ? (

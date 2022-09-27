@@ -22,7 +22,14 @@ const EpisodePage = () => {
   let characterEpisode = [];
   episode.characters
     ? (characterEpisode = episode.characters.map((img, index) => {
-        return <EpisodePageCharacter image={img} key={index} index={index} />;
+        return (
+          <EpisodePageCharacter
+            episode={episode}
+            image={img}
+            key={index}
+            index={index}
+          />
+        );
       }))
     : (characterEpisode = "loading");
 
