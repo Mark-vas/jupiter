@@ -3,21 +3,19 @@ import { NavLink } from "react-router-dom";
 import style from "./EpisodeElement.module.css";
 
 const EpisodeElem = ({ elem }) => {
-  // debugger;
   return (
     <>
       <hr className={style.episode_hr} />
-      <div className={style.episode}>
+      <li className={style.episode}>
         <div className={style.episode_title}>
-          <h1>{elem.id}</h1>
-        </div>
-        <div>
           <NavLink to={`/jupiter/episodes/${elem.id}`}>
-            <h1 style={{ color: "black" }}>{elem.name}</h1>
+            <h1>
+              {elem.episode} - {elem.name}
+            </h1>
           </NavLink>
           <p>{elem.air_date}</p>
         </div>
-      </div>
+      </li>
     </>
   );
 };

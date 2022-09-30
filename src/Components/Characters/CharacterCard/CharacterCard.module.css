@@ -9,16 +9,15 @@
 .images_block button {
   border-radius: 30px;
   border: 0;
-  padding: 2px;
+  padding: 2px 7px;
   font-weight: bold;
   font-family: cursive;
-  background-color: white;
 }
 .images_block p {
   margin: 0;
   background-color: white;
   border: 0;
-  padding: 2px;
+  padding: 2px 7px;
   margin-top: 5px;
   border-radius: 30px;
   font-weight: bold;

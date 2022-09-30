@@ -3,6 +3,7 @@ import { api } from "../../API/api";
 export const CHARACTER = "CHARACTER";
 export const ERROR = "ERROR";
 export const CHARACTERS_EPISODE_IMG = "CHARACTERS_EPISODE_IMG";
+export const CLEAN = "CLEAN";
 
 const getCharacterAC = (character) => ({ type: CHARACTER, character });
 const getEpisodeCharacterAC = (charactersEpisodeImg) => ({
@@ -10,6 +11,7 @@ const getEpisodeCharacterAC = (charactersEpisodeImg) => ({
   charactersEpisodeImg,
 });
 const errorAC = (errMessage) => ({ type: ERROR, errMessage });
+export const cleanAC = () => ({ type: CLEAN });
 
 export const getCharacterTC = (id) => async (dispatch) => {
   try {
@@ -22,8 +24,18 @@ export const getCharacterTC = (id) => async (dispatch) => {
 
 export const getEpisodeChatacterTC = (url) => async (dispatch) => {
   try {
-    const res = await api.getEpisodeChatacter(url);
-    dispatch(getEpisodeCharacterAC(res));
+    let arr = [];
+    for (let i = 0; i < url.length; i++) {
+      const res = await api.getEpisodeChatacter(url[i]);
+      let obj = new Object();
+      obj.image = res.image;
+      obj.id = res.id;
+      if (!arr.includes(res.image)) {
+        // arr.push(res.image);
+        arr.push(obj);
+      }
+    }
+    dispatch(getEpisodeCharacterAC(arr));
   } catch (err) {
     dispatch(errorAC(err.message));
   }

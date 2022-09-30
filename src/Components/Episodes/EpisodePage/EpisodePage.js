@@ -21,9 +21,7 @@ const EpisodePage = () => {
 
   let characterEpisode = [];
   episode.characters
-    ? (characterEpisode = episode.characters.map((img, index) => {
-        return <EpisodePageCharacter image={img} key={index} index={index} />;
-      }))
+    ? (characterEpisode = <EpisodePageCharacter arr={episode.characters} />)
     : (characterEpisode = "loading");
 
   return (

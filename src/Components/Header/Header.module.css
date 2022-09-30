@@ -1,6 +1,5 @@
 .header {
   background-color: #262c3a;
-  /* border-bottom: 1px solid white; */
 }
 .header p,
 a,
@@ -9,7 +8,7 @@ h1 {
 }
 .header_block {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 10px;
   border-bottom: 1px solid white;
 }
@@ -26,13 +25,14 @@ h1 {
   text-align: center;
   text-decoration: none;
   color: aliceblue;
+  font-size: 20px;
 }
 
 .header_description h1 {
   text-align: center;
   margin: 0 auto;
-  padding: 50px 0;
-  font-size: 65px;
+  padding: 25px 0;
+  font-size: 50px;
 }
 .header_description p {
   max-width: 900px;

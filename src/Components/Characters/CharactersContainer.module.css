@@ -21,6 +21,7 @@
   background-color: transparent;
   font-family: cursive;
   font-weight: bold;
+  font-size: 20px;
 }
 .btn_load button {
   display: block;

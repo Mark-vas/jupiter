@@ -44,7 +44,7 @@ const EpisodesContainer = () => {
         <div className={style.block}>
           <p>Total episodes: {info.count}</p>
           <div className={style.episodes}>
-            <div>{episodeElem}</div>
+            <ul>{episodeElem}</ul>
             <div>
               <Pagination
                 count={info.pages}

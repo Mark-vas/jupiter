@@ -1,11 +1,9 @@
 .episode {
-  display: flex;
+  list-style-type: none;
 }
 
 .episode_title {
-  display: flex;
-  align-items: center;
-  padding: 30px;
+  padding-left: 30px;
 }
 
 .episode h1,
