@@ -75,6 +75,7 @@ const imagesReducer = (state = initialState, action) => {
       return { ...state, deadImages: deadeArr, type: "Dead" };
     case UNKNOWNIMAGES:
       let unkArr = [];
+      debugger;
       state.searchImages.length > 0
         ? (unkArr = state.searchImages.filter((img) => img.status == "unknown"))
         : (unkArr = state.mainArr.filter((img) => img.status == "unknown"));
@@ -83,6 +84,7 @@ const imagesReducer = (state = initialState, action) => {
       // return { ...state, type: "All" };
       return { ...state, images: state.mainArr, type: "All" };
     case DELIMAGES:
+      debugger;
       let delArr = state.images.filter((item) => {
         return action.id !== item.id;
       });
@@ -97,6 +99,7 @@ const imagesReducer = (state = initialState, action) => {
         aliveImages: delArr,
         deadImages: delArr,
         unkImages: delArr,
+        searchImages: delArr,
       };
     case SEARCHCHARACTER:
       state.searchImages = action.obj.characters;
