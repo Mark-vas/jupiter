@@ -1,41 +1,24 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const OneEpisode = (props) => {
-  //   const dispatch = useDispatch();
-  //   const requestImageCharacter = async () => {
-  //     dispatch(cleanAC());
-  //   };
-
-  //   useEffect(() => {
-  //     requestImageCharacter();
-  //   }, []);
-  //   debugger;
   let styleImg = {
-    // width: "100px",
+    border: "solid transparent",
+    borderRadius: "6px",
   };
-  //
-  // display: "flex";
-  // flexWrap: "wrap";
 
   let styleDiv = {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "space-between",
-  };
-
-  const fff = (a) => {
-    debugger;
+    justifyContent: "space-evenly",
   };
 
   let episodeCharacters = props.imageCharacter.map((item, index) => {
     return (
-      <li
-        onClick={fff}
-        id={item.id}
-        key={index}
-        style={{ listStyleType: "none" }}
-      >
-        <img style={styleImg} src={item.image}></img>
+      <li id={item.id} key={index} style={{ listStyleType: "none" }}>
+        <NavLink to={`/jupiter/${item.id}`}>
+          <img style={styleImg} src={item.image} />
+        </NavLink>
       </li>
     );
   });

@@ -11,7 +11,6 @@ const getEpisodeCharacterAC = (charactersEpisodeImg) => ({
   charactersEpisodeImg,
 });
 const errorAC = (errMessage) => ({ type: ERROR, errMessage });
-export const cleanAC = () => ({ type: CLEAN });
 
 export const getCharacterTC = (id) => async (dispatch) => {
   try {
@@ -31,7 +30,6 @@ export const getEpisodeChatacterTC = (url) => async (dispatch) => {
       obj.image = res.image;
       obj.id = res.id;
       if (!arr.includes(res.image)) {
-        // arr.push(res.image);
         arr.push(obj);
       }
     }

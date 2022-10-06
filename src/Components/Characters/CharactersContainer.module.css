@@ -34,6 +34,13 @@
   border-radius: 5px;
 }
 
+.footer_end {
+  color: black;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
 @media (max-width: 1040px) {
   .container {
     padding-top: 10px;

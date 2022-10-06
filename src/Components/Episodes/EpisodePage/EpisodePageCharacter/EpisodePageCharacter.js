@@ -12,8 +12,6 @@ const EpisodePageCharacter = (props) => {
   const imageCharacter = useSelector(selectCharactersEpisode);
   const dispatch = useDispatch();
   const requestImageCharacter = async (image) => {
-    // debugger;
-    // dispatch(cleanAC());
     dispatch(getEpisodeChatacterTC(image));
   };
   useEffect(() => {

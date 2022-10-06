@@ -8,6 +8,9 @@ export const DEADIMAGES = "DEADIMAGES";
 export const UNKNOWNIMAGES = "UNKNOWNIMAGES";
 export const DELIMAGES = "DELIMAGES";
 export const SHOWALLIMAGES = "SHOWALLIMAGES";
+export const SEARCHCHARACTER = "SEARCHCHARACTER";
+export const AAA = "AAA";
+export const CLEAN = "CLEAN";
 
 const getImagesAC = (images) => ({ type: IMAGES, images });
 const errorAC = (errMessage) => ({ type: ERROR, errMessage });
@@ -17,6 +20,9 @@ export const deadImagesAC = () => ({ type: DEADIMAGES });
 export const unkImagesAC = () => ({ type: UNKNOWNIMAGES });
 export const delImagesAC = (id) => ({ type: DELIMAGES, id });
 export const showAllImgsAC = () => ({ type: SHOWALLIMAGES });
+export const searchCharacterAC = (obj) => ({ type: SEARCHCHARACTER, obj });
+export const aaaAC = () => ({ type: AAA });
+export const cleanSearchImagesAC = () => ({ type: CLEAN });
 
 export const getImagesTC = () => async (dispatch) => {
   try {

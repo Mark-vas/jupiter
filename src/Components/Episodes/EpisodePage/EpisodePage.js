@@ -29,8 +29,10 @@ const EpisodePage = () => {
       {!episode ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
-          {episode.name}
+        <div style={{ paddingLeft: "10px" }}>
+          <h1 style={{ color: "black" }}>{episode.name}</h1>
+          <p>Episode: {episode.episode}</p>
+          <p>Air date: {episode.air_date}</p>
           <div>{characterEpisode}</div>
         </div>
       )}
