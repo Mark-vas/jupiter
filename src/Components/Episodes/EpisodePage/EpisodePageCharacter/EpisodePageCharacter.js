@@ -18,6 +18,8 @@ const EpisodePageCharacter = (props) => {
     requestImageCharacter(props.arr);
   }, [props]);
 
+  console.log(props.episode);
+
   return (
     <>
       {imageCharacter[0] ? (
