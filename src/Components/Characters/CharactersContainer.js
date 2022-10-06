@@ -52,6 +52,7 @@ const CharactersContainer = () => {
           }));
 
       obj.type = type;
+      debugger;
       // dispatch(getImagesTC());
       dispatch(searchCharacterAC(obj));
     } else {

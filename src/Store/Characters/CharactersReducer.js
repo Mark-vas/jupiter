@@ -75,7 +75,6 @@ const imagesReducer = (state = initialState, action) => {
       return { ...state, deadImages: deadeArr, type: "Dead" };
     case UNKNOWNIMAGES:
       let unkArr = [];
-      debugger;
       state.searchImages.length > 0
         ? (unkArr = state.searchImages.filter((img) => img.status == "unknown"))
         : (unkArr = state.mainArr.filter((img) => img.status == "unknown"));
@@ -102,7 +101,9 @@ const imagesReducer = (state = initialState, action) => {
         searchImages: delArr,
       };
     case SEARCHCHARACTER:
-      state.searchImages = action.obj.characters;
+      if (action.obj.characters.length == 0) {
+        state.searchImages = ["noData"];
+      } else state.searchImages = action.obj.characters;
       action.obj.type == "All"
         ? (state = { ...state, images: action.obj.characters })
         : action.obj.type == "Alive"
