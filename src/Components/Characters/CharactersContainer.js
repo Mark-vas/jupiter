@@ -20,6 +20,8 @@ import {
 import CharacterCard from "./CharacterCard/CharacterCard";
 import style from "./CharactersContainer.module.css";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
 const CharactersContainer = () => {
   const images = useSelector(selectImages);
@@ -37,8 +39,6 @@ const CharactersContainer = () => {
   let arr = [];
 
   const searchCharacters = (elem, type) => {
-    // dispatch(getImagesTC());
-    // let value = elem.currentTarget.value
     if (elem !== "") {
       const regexp = new RegExp(elem, "i");
       let newSearchCharacters = images.mainArr.filter((nameCharacter) =>
@@ -52,8 +52,6 @@ const CharactersContainer = () => {
           }));
 
       obj.type = type;
-      debugger;
-      // dispatch(getImagesTC());
       dispatch(searchCharacterAC(obj));
     } else {
       dispatch(cleanSearchImagesAC());
@@ -97,15 +95,9 @@ const CharactersContainer = () => {
     dispatch(unkImagesAC());
   };
 
-  // const [input, setInput] = useState(true);
-
   const showImgs = (e) => {
     let inputSearch = document.getElementById("search");
-    // inputSearch.value = "";
     searchCharacters(inputSearch.value, e.target.innerHTML);
-    // searchCharacters("");
-    // dispatch(getImagesTC());
-    // requestImages(e.target.innerHTML);
     e.target.innerHTML == "Alive"
       ? dispatch(aliveImagesAC())
       : e.target.innerHTML == "Dead"
@@ -126,36 +118,6 @@ const CharactersContainer = () => {
       : dispatch(aaaAC());
   };
 
-  // let imgElem;
-
-  // if (images.type == "All") {
-  //   imgElem = arr.map((img, index) => {
-  //     return (
-  //       <CharacterCard
-  //         delImgs={delImgs}
-  //         aliveImgs={aliveImgs}
-  //         deadImgs={deadImgs}
-  //         unkImgs={unkImgs}
-  //         key={index}
-  //         img={img}
-  //       />
-  //     );
-  //   });
-  // } else {
-  //   imgElem = arrStatus.map((img, index) => {
-  //     return (
-  //       <CharacterCard
-  //         delImgs={delImgs}
-  //         aliveImgs={aliveImgs}
-  //         deadImgs={deadImgs}
-  //         unkImgs={unkImgs}
-  //         key={index}
-  //         img={img}
-  //       />
-  //     );
-  //   });
-  // }
-
   const imgElem = arr.map((img, index) => {
     return (
       <CharacterCard
@@ -175,7 +137,6 @@ const CharactersContainer = () => {
       <button
         key={btn}
         onClick={(e) => {
-          // setInput(!input);
           showImgs(e);
         }}
         style={btn == images.type ? { color: "green" } : {}}
@@ -191,21 +152,30 @@ const CharactersContainer = () => {
       ) : (
         <main className={style.characters}>
           <div className={style.button_group}>{buttonElem}</div>
-          {/* {images.type == "All" ? ( */}
-          <input
-            id="search"
-            type="search"
-            onChange={(e) => {
-              let elem = e.currentTarget.value;
-              searchCharacters(elem, images.type);
+          <Box
+            component="form"
+            sx={{
+              "& .MuiTextField-root": {
+                m: 1,
+                width: "25ch",
+              },
             }}
-            placeholder="Search"
-            autoFocus
-          ></input>
-          {/* ) : (
-            <></>
-          )} */}
-
+            noValidate
+            autoComplete="off"
+          >
+            <div style={{ paddingLeft: "56px" }}>
+              <TextField
+                onChange={(e) => {
+                  let elem = e.currentTarget.value;
+                  searchCharacters(elem, images.type);
+                }}
+                id="search"
+                label="Character search"
+                type="search"
+                variant="standard"
+              />
+            </div>
+          </Box>
           <div className={style.container}>{imgElem}</div>
           {images.type == "All" ? (
             <div className={style.btn_load}>

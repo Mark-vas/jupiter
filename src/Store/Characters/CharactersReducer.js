@@ -24,37 +24,10 @@ const initialState = {
 const imagesReducer = (state = initialState, action) => {
   switch (action.type) {
     case IMAGES:
-      debugger;
-      // console.log(delArr);
-      // aliveArr = state.images.filter((img) => img.status == "Alive");
-      // let arr = [];
-      // state.delImages.length > 0
-      //   ? (arr = {
-      //       ...state,
-      //       images: state.delImages,
-      //       aliveImages: state.delImages.filter((img) => img.status == "Alive"),
-      //       deadImages: state.delImages.filter((img) => img.status == "Dead"),
-      //       unkImages: state.delImages.filter((img) => img.status == "unknown"),
-      //       // type:
-      //       //   action.typeCharacters !== undefined ? action.typeCharacters : "All",
-      //     })
-      //   : (arr = {
-      //       ...state,
-      //       images: action.images,
-      //       aliveImages: state.images.filter((img) => img.status == "Alive"),
-      //       deadImages: state.images.filter((img) => img.status == "Dead"),
-      //       unkImages: state.images.filter((img) => img.status == "unknown"),
-      //     });
-      // return arr;
       return {
         ...state,
         mainArr: action.images,
         images: action.images,
-        // aliveImages: state.images.filter((img) => img.status == "Alive"),
-        // deadImages: state.images.filter((img) => img.status == "Dead"),
-        // unkImages: state.images.filter((img) => img.status == "unknown"),
-        //   // type:
-        //   //   action.typeCharacters !== undefined ? action.typeCharacters : "All",
       };
     case LOADIMAGES:
       let loadImages = [...state.images, ...action.loadImages];
@@ -64,8 +37,6 @@ const imagesReducer = (state = initialState, action) => {
       state.searchImages.length > 0
         ? (aliveArr = state.searchImages.filter((img) => img.status == "Alive"))
         : (aliveArr = state.mainArr.filter((img) => img.status == "Alive"));
-      // let aliveArr = state.mainArr.filter((img) => img.status == "Alive");
-      // return { ...state, aliveImages: aliveArr, type: "Alive" };
       return { ...state, aliveImages: aliveArr, type: "Alive" };
     case DEADIMAGES:
       let deadeArr = [];
@@ -80,17 +51,19 @@ const imagesReducer = (state = initialState, action) => {
         : (unkArr = state.mainArr.filter((img) => img.status == "unknown"));
       return { ...state, unkImages: unkArr, type: "unknown" };
     case SHOWALLIMAGES:
-      // return { ...state, type: "All" };
-      return { ...state, images: state.mainArr, type: "All" };
+      return {
+        ...state,
+        images:
+          state.searchImages.length > 0 ? state.searchImages : state.mainArr,
+        type: "All",
+      };
     case DELIMAGES:
-      debugger;
       let delArr = state.images.filter((item) => {
         return action.id !== item.id;
       });
       let delMainArr = state.mainArr.filter((item) => {
         return action.id !== item.id;
       });
-      // state.delImages = delArr;
       return {
         ...state,
         mainArr: delMainArr,

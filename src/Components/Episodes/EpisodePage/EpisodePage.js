@@ -17,8 +17,6 @@ const EpisodePage = () => {
     requestEpisode(id);
   }, []);
 
-  // episode - массив данных выбранного эпизода. Необходимо красиво его разместить на странице
-
   let characterEpisode = [];
   episode.characters
     ? (characterEpisode = <EpisodePageCharacter arr={episode.characters} />)

@@ -1,12 +1,11 @@
 import React from "react";
-import {
-  getEpisodeChatacterTC,
-  cleanAC,
-} from "../../../../Store/Character/action";
+import { getEpisodeChatacterTC } from "../../../../Store/Character/action";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectCharactersEpisode } from "../../../../Store/Character/characterSelector";
 import OneEpisode from "./OneEpisode";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 const EpisodePageCharacter = (props) => {
   const imageCharacter = useSelector(selectCharactersEpisode);
@@ -23,7 +22,9 @@ const EpisodePageCharacter = (props) => {
       {imageCharacter[0] ? (
         <OneEpisode imageCharacter={imageCharacter} />
       ) : (
-        <>loading...</>
+        <Box sx={{ display: "flex" }}>
+          <CircularProgress />
+        </Box>
       )}
     </>
   );

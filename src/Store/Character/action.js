@@ -3,7 +3,6 @@ import { api } from "../../API/api";
 export const CHARACTER = "CHARACTER";
 export const ERROR = "ERROR";
 export const CHARACTERS_EPISODE_IMG = "CHARACTERS_EPISODE_IMG";
-export const CLEAN = "CLEAN";
 
 const getCharacterAC = (character) => ({ type: CHARACTER, character });
 const getEpisodeCharacterAC = (charactersEpisodeImg) => ({

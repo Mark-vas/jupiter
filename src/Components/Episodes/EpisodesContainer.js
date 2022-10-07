@@ -55,7 +55,6 @@ const EpisodesContainer = () => {
       [...buttons].forEach((el) => {
         el.style.backgroundColor = "transparent";
       });
-
       e.target.style.backgroundColor = "peachpuff";
     }
     dispatch(episodeSeasonAC(e.target.innerText));
