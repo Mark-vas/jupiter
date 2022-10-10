@@ -38,8 +38,11 @@ export const api = {
     return res.data;
   },
   // Получение всех локаций
-  async getLocations() {
-    const res = await axios.get("https://rickandmortyapi.com/api/location");
+  async getLocations(num) {
+    debugger;
+    const res = await axios.get(
+      `https://rickandmortyapi.com/api/location?page=${num}`
+    );
     return res.data;
   },
   // Получение следующей страницы локаций
@@ -51,7 +54,9 @@ export const api = {
   },
   // Получение одной локации
   async getLocation(id) {
-    const res = await axios.get(`rickandmortyapi.com/api/location/${id}`);
+    const res = await axios.get(
+      `https://rickandmortyapi.com/api/location/${id}`
+    );
     return res.data;
   },
 };

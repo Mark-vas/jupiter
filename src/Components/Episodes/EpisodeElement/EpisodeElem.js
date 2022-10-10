@@ -9,9 +9,7 @@ const EpisodeElem = ({ elem }) => {
       <li className={style.episode}>
         <div className={style.episode_title}>
           <NavLink to={`/jupiter/episodes/${elem.id}`}>
-            <h1>
-              {elem.episode} - {elem.name}
-            </h1>
+            <h1>{elem.name}</h1>
           </NavLink>
           <p>{elem.air_date}</p>
         </div>

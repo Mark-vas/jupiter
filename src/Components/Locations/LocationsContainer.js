@@ -6,6 +6,7 @@ import {
   errorSelector,
   locationsSelector,
   infoSelector,
+  numberPageSelector,
 } from "../../Store/Locations/LocationsSelector";
 import ErrorBlock from "../ErrorBlock/ErrorBlock";
 import Pagination from "@mui/material/Pagination";
@@ -13,19 +14,19 @@ import Stack from "@mui/material/Stack";
 import Locations from "./Locations";
 
 const LocationsContainer = () => {
+  const numberPage = useSelector(numberPageSelector);
   const locations = useSelector(locationsSelector);
   const error = useSelector(errorSelector);
   const info = useSelector(infoSelector);
   const dispatch = useDispatch();
-  const requestLocations = async () => {
-    dispatch(locationsTC());
+  const requestLocations = async (numberPage) => {
+    dispatch(locationsTC(numberPage));
   };
   useEffect(() => {
-    requestLocations();
+    requestLocations(numberPage);
   }, []);
-
+  debugger;
   const handleChange = (e, value) => {
-    debugger;
     dispatch(loadLocationsTC(value));
     // console.log(e);
     // // e.target.dataset.testid;
@@ -33,8 +34,6 @@ const LocationsContainer = () => {
     // console.log(e.target.dataset.testid);
   };
 
-  console.log(locations);
-  // console.log(info);
   return (
     <>
       {error ? (
@@ -42,7 +41,11 @@ const LocationsContainer = () => {
       ) : locations.length > 0 ? (
         <div>
           <Stack>
-            <Pagination count={info.pages} onChange={handleChange} />
+            <Pagination
+              page={numberPage}
+              count={info.pages}
+              onChange={handleChange}
+            />
           </Stack>
           <Locations locations={locations} />
         </div>

@@ -3,15 +3,20 @@ import { NavLink } from "react-router-dom";
 import style from "./Locations.module.css";
 
 const Locations = (props) => {
-  debugger;
+  // debugger;
   const locations = props.locations.map((location, index) => {
-    debugger;
+    // debugger;
     return (
       <div key={index}>
-        <NavLink to={`/jupiter/locations/${location.id}`}>
-          <h1>{location.name}</h1>
-        </NavLink>
-        <p>Type: {location.type}</p>
+        <hr className={style.location_hr} />
+        <li className={style.location}>
+          <div className={style.location_title}>
+            <NavLink to={`/jupiter/locations/${location.id}`}>
+              <h1>{location.name}</h1>
+            </NavLink>
+            <p>Type: {location.type}</p>
+          </div>
+        </li>
       </div>
     );
   });
