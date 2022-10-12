@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/jupiter/static/css/main.d6572417.css",
-    "main.js": "/jupiter/static/js/main.8e244f06.js",
+    "main.css": "/jupiter/static/css/main.439e2291.css",
+    "main.js": "/jupiter/static/js/main.6defc665.js",
     "static/js/787.81f5a191.chunk.js": "/jupiter/static/js/787.81f5a191.chunk.js",
+    "static/media/err.png": "/jupiter/static/media/err.bdd6604a4cc99684411d.png",
+    "static/media/icons8-rick-sanchez.svg": "/jupiter/static/media/icons8-rick-sanchez.b6dbecbf5880eb83389104279adc0fcb.svg",
     "static/media/icons8-morty-smith.svg": "/jupiter/static/media/icons8-morty-smith.c165d15dfe8301f1f2bdf570a8ad6c68.svg",
     "index.html": "/jupiter/index.html",
-    "main.d6572417.css.map": "/jupiter/static/css/main.d6572417.css.map",
-    "main.8e244f06.js.map": "/jupiter/static/js/main.8e244f06.js.map",
+    "main.439e2291.css.map": "/jupiter/static/css/main.439e2291.css.map",
+    "main.6defc665.js.map": "/jupiter/static/js/main.6defc665.js.map",
     "787.81f5a191.chunk.js.map": "/jupiter/static/js/787.81f5a191.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d6572417.css",
-    "static/js/main.8e244f06.js"
+    "static/css/main.439e2291.css",
+    "static/js/main.6defc665.js"
   ]
 }
