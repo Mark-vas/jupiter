@@ -16,7 +16,7 @@ const LocationPageCharacter = (props) => {
 
   useEffect(() => {
     requestImageCharacter(props.arr);
-  }, [props.arr]);
+  }, [locationCharacter]);
 
   return (
     <>

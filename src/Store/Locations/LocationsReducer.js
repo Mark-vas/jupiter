@@ -12,7 +12,6 @@ const initialState = {
 const locationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOCATIONS:
-      debugger;
       return {
         ...state,
         locations: action.locations.results,

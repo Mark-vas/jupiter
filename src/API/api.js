@@ -37,7 +37,6 @@ export const api = {
     );
     return res.data;
   },
-  // Получение всех локаций
   async getLocations(num) {
     debugger;
     const res = await axios.get(
@@ -45,14 +44,12 @@ export const api = {
     );
     return res.data;
   },
-  // Получение следующей страницы локаций
   async loadLocations(num) {
     const res = await axios.get(
       `https://rickandmortyapi.com/api/location?page=${num}`
     );
     return res.data;
   },
-  // Получение одной локации
   async getLocation(id) {
     const res = await axios.get(
       `https://rickandmortyapi.com/api/location/${id}`

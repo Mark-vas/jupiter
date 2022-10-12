@@ -3,9 +3,7 @@ import { NavLink } from "react-router-dom";
 import style from "./Locations.module.css";
 
 const Locations = (props) => {
-  // debugger;
   const locations = props.locations.map((location, index) => {
-    // debugger;
     return (
       <div key={index}>
         <hr className={style.location_hr} />

@@ -25,13 +25,9 @@ const LocationsContainer = () => {
   useEffect(() => {
     requestLocations(numberPage);
   }, []);
-  debugger;
+
   const handleChange = (e, value) => {
     dispatch(loadLocationsTC(value));
-    // console.log(e);
-    // // e.target.dataset.testid;
-    // // setCount(count + 1);
-    // console.log(e.target.dataset.testid);
   };
 
   return (

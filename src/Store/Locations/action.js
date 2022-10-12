@@ -16,7 +16,6 @@ const locationCharacterAC = (locationCharacter) => ({
 export const locationsTC = (num) => async (dispatch) => {
   try {
     const res = await api.getLocations(num);
-    debugger;
     dispatch(locationsAC(res, num));
   } catch (err) {
     dispatch(errorAC(err.message));

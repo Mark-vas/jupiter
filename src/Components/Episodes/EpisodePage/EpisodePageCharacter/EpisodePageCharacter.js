@@ -15,7 +15,7 @@ const EpisodePageCharacter = (props) => {
   };
   useEffect(() => {
     requestImageCharacter(props.arr);
-  }, [props]);
+  }, [imageCharacter]);
 
   return (
     <>
